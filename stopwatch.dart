@@ -25,20 +25,30 @@ class Stopwatch {
   }
 }
 
-void main() {
-  final stopwatch = Stopwatch();
-  print('input \'s\' to start, \'e\' to stop, and \'r\' to reset the timer.');
-  while(true){
-    switch(stdin.readLineSync()){
-      case 's':
-        stopwatch.start();
-      case 'e':
-        stopwatch.stop();
-      case 'r':
-        stopwatch.reset();
-      default :
-        print('Invalid input. Enter \'s\' to start.');
+class StopwatchManager{
+  void Instruction(){
+    print('input \'s\' to start, \'e\' to stop, and \'r\' to reset the timer.');
+  }
+  void Supervise(){
+    final stopwatch = Stopwatch();
+    while(true){
+      switch(stdin.readLineSync()){
+        case 's':
+          stopwatch.start();
+        case 'e':
+          stopwatch.stop();
+        case 'r':
+          stopwatch.reset();
+        default :
+          print('Invalid input. Enter \'s\' to start.');
+      }
     }
   }
+}
+
+void main() {
+  final manager = StopwatchManager();
+  manager.Instruction();
+  manager.Supervise();
 }
 
